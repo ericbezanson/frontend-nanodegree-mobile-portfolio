@@ -33,6 +33,8 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
+  transform: translate3d(0,0,0); /**(src: https://www.smashingmagazine.com/2012/06/play-with-hardware-accelerated-css/) according to this tricking the browser into thinking the page is 3D is a perf boon*/
+  will-change: transform; /**Added will-change styles to hint the browser as to what to expect and prevent continuous painting of pizzas*/
 }
 
 .randomPizzaContainer {

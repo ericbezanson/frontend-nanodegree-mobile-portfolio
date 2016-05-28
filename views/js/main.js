@@ -502,9 +502,10 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover'); // (https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/) - acording to this research GetElementsByClassName() is faster then querySelectorAll so I changed that for further optimization
+  var scrolling = (document.body.scrollTop / 1250); // cached to prevent multiple pulls of the DOM which creates Reflow (Forced Sync Layout)
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin(scrolling + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -525,7 +526,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 25; i++) { //lowered the amount of pizzas to 25 from 200. counted pizzas on screen at multiple points and it never once had more then 25, anything more is not required and a resource waste.
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
