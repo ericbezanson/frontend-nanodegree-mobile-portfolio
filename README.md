@@ -10,8 +10,6 @@ To get started, check out the repository, inspect the code, run the website live
 * <a href="http://ericbezanson.github.io/frontend-nanodegree-mobile-portfolio/"> index.html</a>
 * <a href="http://ericbezanson.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html"> pizza.html</a>
 
-######Please note that all optimizations are done on the gh-pages branch, master branch contains original code.######
-
 
 ####Part 1: Optimize PageSpeed Insights score for index.html.
 
