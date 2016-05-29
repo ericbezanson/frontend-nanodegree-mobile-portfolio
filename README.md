@@ -28,7 +28,10 @@ to accomplish this the following changes were made:
 * created scrolling var outside of for loop in updatePositions so it would be cached in global scope preventing multiple pulls of the DOM which would have otherwise created Reflow (Forced Synchronous Layout)
 * lowered the amount of pizzas generated to 25 from 200. I had counted the pizzas on screen at multiple points during scroll and it never once had more then 25, anything more then 25 would be redundant and detremental to the framerate.
 
+####Before
 ![Before](https://github.com/ericbezanson/frontend-nanodegree-mobile-portfolio/blob/gh-pages/img/PizzaPreOp.jpg "Before")
+
+####After
 ![After](https://github.com/ericbezanson/frontend-nanodegree-mobile-portfolio/blob/gh-pages/img/PizzaPostOp.jpg "After")
 
 ####Part 3: Optimize time to resize pizza.
