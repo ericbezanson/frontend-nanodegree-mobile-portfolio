@@ -25,7 +25,7 @@ form {
   text-align: center;
 }
 
-#pizzaSize {
+#pizzaSize {ß
   font-weight: 800;
 }
 
@@ -47,6 +47,8 @@ form {
   display: table;
   clear:both;
 }
+
+
 
  .container {
   background-color: rgba(240, 60, 60, 0.8);

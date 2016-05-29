@@ -450,12 +450,13 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");//created var to store elements, decreasing the frequency of DOM access.
+    var dx = determineDx(randomPizzaContainer[0], size);// function still worked after caching these var in global scope, created massive difference in resize time
+    var newwidth = (randomPizzaContainer[0].offsetWidth + dx) + 'px';// see above comment ^
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
-  }
+  };
 
   changePizzaSizes(size);
 
@@ -503,7 +504,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.getElementsByClassName('mover'); // (https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/) - acording to this research GetElementsByClassName() is faster then querySelectorAll so I changed that for further optimization
-  var scrolling = (document.body.scrollTop / 1250); // cached to prevent multiple pulls of the DOM which creates Reflow (Forced Sync Layout)
+  var scrolling = (document.body.scrollTop / 1250); // cached to prevent multiple pulls of the DOM which would have otherwise created Reflow (Forced Synchronous Layout)
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(scrolling + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
