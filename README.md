@@ -31,6 +31,8 @@ to accomplish this the following changes were made:
 * acording to research I have done GetElementsByClassName() is faster then querySelectorAll so I changed that within the updatePosition function (<a href="(https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/)">Information Source</a>
 * created scrolling var outside of for loop in updatePositions so it would be cached in global scope preventing multiple pulls of the DOM which would have otherwise created Reflow (Forced Synchronous Layout)
 * lowered the amount of pizzas generated to 25 from 200. I had counted the pizzas on screen at multiple points during scroll and it never once had more then 25, anything more then 25 would be redundant and detremental to the framerate.
+* Applied translate3D(0,0,0) to .mover CSS class. this tricks the browser into thinking the page is 3D which provides a performance boon as more hardware resources are allowcated to page load. (<a href="https://www.smashingmagazine.com/2012/06/play-with-hardware-accelerated-css/">Source Link</a>)
+* Added will-change styles to .mover CSS class to hint the browser as to what to expect and prevent continuous painting of pizzas
 
 ####Before
 ![Before](https://github.com/ericbezanson/frontend-nanodegree-mobile-portfolio/blob/gh-pages/img/PizzaPreOp.jpg "Before")
