@@ -22,6 +22,8 @@ to accomplish this the following changes were made:
 * Used media query to prevent print.css from becoming render blocking.
 * used web font loader instead of render blocking googlefont api  (<a href="https://github.com/typekit/webfontloader">Information Source</a>)
 
+######Pagespeed Insight Score: <a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fericbezanson.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F">Link</a>
+
 ####Part 2: Optimize Frames per Second in pizza.html.
 
 to accomplish this the following changes were made:
